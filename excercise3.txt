@@ -1,0 +1,7 @@
+"The password for Century4 is the number of files on the desktop."
+
+PS C:\users\century3\desktop> **(Get-ChildItem -File ..\Desktop | Measure-Object).Count**
+**123**
+PS C:\users\century3\desktop>
+
+century4:123

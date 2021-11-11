@@ -1,0 +1,18 @@
+"The password for Century2 is the build version of the instance of PowerShell installed on this system."
+PS C:\users\century1\desktop> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      5.1.14393.4467
+PSEdition                      Desktop
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   **10.0.14393.4467**
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+
+
+PS C:\users\century1\desktop>
+
+century2:10.0.14393.4467

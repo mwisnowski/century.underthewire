@@ -1,0 +1,35 @@
+"The password for Century5 is the name of the file within a directory on the desktop that has spaces in its name."
+
+PS C:\users\century4\desktop> ls
+
+
+    Directory: C:\users\century4\desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         7/3/2021   1:15 AM                Can You Open Me
+d-----         3/2/2021   6:57 PM                One      Directory
+d-----         7/3/2021   1:17 AM                Open              Me
+d-----        3/14/2021   9:11 PM                Open     Me
+-a----         7/9/2021   6:07 PM            272 file.txt
+-a----        8/24/2021  12:17 AM           1486 files.txt
+
+
+PS C:\users\century4\desktop> ls '.\Can You Open Me'
+
+
+    Directory: C:\users\century4\desktop\Can You Open Me
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/30/2018   3:29 AM             24 **61580**
+
+
+PS C:\users\century4\desktop> ls '.\One      Directory'
+PS C:\users\century4\desktop> ls '.\Open              Me'
+PS C:\users\century4\desktop> ls .\'Open     Me'
+PS C:\users\century4\desktop>
+
+century5:61580
