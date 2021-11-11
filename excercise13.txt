@@ -1,0 +1,14 @@
+"The password for Century14 is the number of words within the file on the desktop."
+
+a nice easy one we can find with measure-object
+
+PS C:\users\century13\desktop> GC .\countmywords|Measure-object -word
+
+Lines Words Characters Property
+----- ----- ---------- --------
+        **755**
+
+
+PS C:\users\century13\desktop>
+
+century14:755
