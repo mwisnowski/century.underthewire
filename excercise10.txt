@@ -1,0 +1,86 @@
+"The password for Century11 is the 10th and 8th word of the Windows Update service description combined PLUS the name of the file on the desktop."
+
+this one had me stumped because just googling "powershell get windows update service description" returned a few things that didn't seem entirely relevant (And gave no results for what I needed)
+turns out there' just a bit of a process of going through a few info gathering stages:
+
+First the filename on the desktop since it was easy:
+PS C:\users\century10\desktop> ls
+
+
+    Directory: C:\users\century10\desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/30/2018   3:34 AM             43 ***110**
+
+
+Then it involved querying the services for what handles the windows updates:
+PS C:\users\century10\desktop> Get-Service -DisplayName *update*
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  tzautoupdate       Auto Time Zone Updater
+Running  UsoSvc             Update Orchestrator Service for Win...
+Stopped  **wuauserv**           Windows Update
+
+
+We now have the name, but no description or info, since it's a wind32 service, we'll just need to filter for the name "wuauserv"
+
+PS C:\users\century10\desktop> Get-WMIObject -Class Win32_Service -Filter "name='wuauserv'" |select-object *
+
+
+PSComputerName          : UTW
+Name                    : wuauserv
+Status                  : OK
+ExitCode                : 0
+DesktopInteract         : False
+ErrorControl            : Normal
+PathName                : C:\Windows\system32\svchost.exe -k netsvcs
+ServiceType             : Share Process
+StartMode               : Manual
+__GENUS                 : 2
+__CLASS                 : Win32_Service
+__SUPERCLASS            : Win32_BaseService
+__DYNASTY               : CIM_ManagedSystemElement
+__RELPATH               : Win32_Service.Name="wuauserv"
+__PROPERTY_COUNT        : 26
+__DERIVATION            : {Win32_BaseService, CIM_Service, CIM_LogicalElement, CIM_ManagedSystemElement}
+__SERVER                : UTW
+__NAMESPACE             : root\cimv2
+__PATH                  : \\UTW\root\cimv2:Win32_Service.Name="wuauserv"
+AcceptPause             : False
+AcceptStop              : False
+Caption                 : Windows Update
+CheckPoint              : 0
+CreationClassName       : Win32_Service
+DelayedAutoStart        : False
+Description             : Enables the detection, download, and installation of **updates** for **Windows** and other programs. If this service is disabled, users
+                          of this computer will not be able to use Windows Update or its automatic updating feature, and programs will not be able to use
+                          the Windows Update Agent (WUA) API.
+DisplayName             : Windows Update
+InstallDate             :
+ProcessId               : 0
+ServiceSpecificExitCode : 0
+Started                 : False
+StartName               : LocalSystem
+State                   : Stopped
+SystemCreationClassName : Win32_ComputerSystem
+SystemName              : UTW
+TagId                   : 0
+WaitHint                : 0
+Scope                   : System.Management.ManagementScope
+Path                    : \\UTW\root\cimv2:Win32_Service.Name="wuauserv"
+Options                 : System.Management.ObjectGetOptions
+ClassPath               : \\UTW\root\cimv2:Win32_Service
+Properties              : {AcceptPause, AcceptStop, Caption, CheckPoint...}
+SystemProperties        : {__GENUS, __CLASS, __SUPERCLASS, __DYNASTY...}
+Qualifiers              : {dynamic, Locale, provider, UUID}
+Site                    :
+Container               :
+
+
+
+PS C:\users\century10\desktop>
+
+century11:windowsupdates110

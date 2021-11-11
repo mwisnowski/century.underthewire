@@ -1,0 +1,60 @@
+"The password for Century13 is the description of the computer designated as a Domain Controller within this domain PLUS the name of the file on the desktop."
+
+PS C:\users\century12\desktop> ls                                                                                                                                                                                                                                                                                                                                                                                                                                                          Directory: C:\users\century12\desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/30/2018   3:34 AM             30 _things
+
+first lets get the computer name thatof the dc
+PS C:\users\century12\desktop> Get-Addomaincontroller
+
+
+ComputerObjectDN           : CN=**UTW**,OU=Domain Controllers,DC=underthewire,DC=tech
+DefaultPartition           : DC=underthewire,DC=tech
+Domain                     : underthewire.tech
+Enabled                    : True
+Forest                     : underthewire.tech
+HostName                   : utw.underthewire.tech
+InvocationId               : 09ee1897-2210-4ac9-989d-e19b4241e9c6
+IPv4Address                : 192.99.167.156
+IPv6Address                :
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : UTW
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=UTW,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=underthewire,DC=tech
+OperatingSystem            : Windows Server 2016 Standard
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {SchemaMaster, DomainNamingMaster, PDCEmulator, RIDMaster...}
+Partitions                 : {DC=ForestDnsZones,DC=underthewire,DC=tech, DC=DomainDnsZones,DC=underthewire,DC=tech,
+                             CN=Schema,CN=Configuration,DC=underthewire,DC=tech, CN=Configuration,DC=underthewire,DC=tech...}
+ServerObjectDN             : CN=UTW,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=underthewire,DC=tech
+ServerObjectGuid           : df17c8a3-dd76-438b-8ddf-b7ad3e624618
+Site                       : Default-First-Site-Name
+SslPort                    : 636
+
+
+then the description of that computer
+PS C:\users\century12\desktop> get-adcomputer -Filter {name -Eq "UTW"} -Properties description
+
+
+Description       : **i_authenticate**
+DistinguishedName : CN=UTW,OU=Domain Controllers,DC=underthewire,DC=tech
+DNSHostName       : utw.underthewire.tech
+Enabled           : True
+Name              : UTW
+ObjectClass       : computer
+ObjectGUID        : 5ca56844-bb73-4234-ac85-eed2d0d01a2e
+SamAccountName    : UTW$
+SID               : S-1-5-21-758131494-606461608-3556270690-1000
+UserPrincipalName :
+
+
+
+PS C:\users\century12\desktop>
+
+century13:i_authenticate_things

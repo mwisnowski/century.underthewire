@@ -1,0 +1,13 @@
+"The password for Century10 is the 161st word within the file on the desktop."
+
+This one was kind of interesting, and I found a couple ways to get the desired results, both checking against whitespace between words:
+
+PS C:\users\century9\desktop> (Get-Content .\Word_File.txt) -split '\s+' | select-object -index 160
+**pierid**
+PS C:\users\century9\desktop> ((Get-Content '.\Word_File.txt').split(' '))[160]
+**pierid**
+PS C:\users\century9\desktop>
+
+seems both work, but the second one _can_ be affected by double spaces and skew the results a bit.
+
+century10:pierid

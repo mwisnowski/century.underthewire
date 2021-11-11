@@ -1,11 +1,13 @@
 "The password for Century3 is the name of the built-in cmdlet that performs the wget like function within PowerShell PLUS the name of the file on the desktop."
+
+first lets find the wget alias
 PS C:\users\century2\desktop> **Get-alias wget**
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Alias           wget -> **Invoke-WebRequest**
 
-
+then the file on the desktop
 PS C:\users\century2\desktop> ls .\
 
 
