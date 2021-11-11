@@ -1,0 +1,18 @@
+"The password for Century12 is the name of the hidden file within the contacts, desktop, documents, downloads, favorites, music, or videos folder in the user’s profile."
+
+PS C:\users\century11> Get-ChildItem -File -Path Contacts,Desktop,Documents,Downloads,Favorites,Music,Videos -Attributes -recurse hidden -erroraction silentlycontinue
+
+
+    Directory: C:\users\century11\Downloads
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+--rh--        8/30/2018   3:34 AM             30 **secret_sauce**
+
+
+PS C:\users\century11>
+
+*not including the "-erroraction silentlycontinue" tag still works but gives a bunch of errors in subdirectories on this instance*
+
+century12:secret_sauce
