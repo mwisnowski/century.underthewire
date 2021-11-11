@@ -1,0 +1,8 @@
+"The password for Century8 is in a readme file somewhere within the contacts, desktop, documents, downloads, favorites, music, or videos folder in the user’s profile.
+"
+
+PS C:\users\century7\desktop> (Get-Childitem –Path .. -Include *readme* -File -Recurse -ErrorAction SilentlyContinue) | cat
+**7points**
+PS C:\users\century7\desktop>
+
+century8:7points

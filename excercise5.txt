@@ -1,0 +1,28 @@
+"The password for Century6 is the short name of the domain in which this system resides in PLUS the name of the file on the desktop."
+
+PS C:\users\century5\desktop> ls
+
+
+    Directory: C:\users\century5\desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/30/2018   3:29 AM             54 **3347**
+
+
+PS C:\users\century5\desktop> Get-WmiObject Win32_computersystem
+
+
+Domain              : **underthewire**.tech
+Manufacturer        : OpenStack Foundation
+Model               : OpenStack Nova
+Name                : UTW
+PrimaryOwnerName    : UTW_Team
+TotalPhysicalMemory : 12582359040
+
+
+
+PS C:\users\century5\desktop>
+
+century6:underthewire3347
